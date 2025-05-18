@@ -1,12 +1,25 @@
 
+import { useState } from "react";
 import DashboardLayout from "@/components/DashboardLayout";
 import StatsCard from "@/components/StatsCard";
 import ReportsTable from "@/components/ReportsTable";
 import FinanceChart from "@/components/FinanceChart";
+import { FilterOptions } from "@/components/FilterPopover";
 
 export function Dashboard() {
+  const [filters, setFilters] = useState<FilterOptions>({
+    dateRange: "all",
+    category: "all"
+  });
+
+  const handleFilterChange = (newFilters: FilterOptions) => {
+    console.log("Dashboard filters:", newFilters);
+    setFilters(newFilters);
+    // In a real application, you would use these filters to fetch data or filter existing data
+  };
+
   return (
-    <DashboardLayout>
+    <DashboardLayout onFilterChange={handleFilterChange}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         <StatsCard 
           title="Total Revenue"
@@ -35,7 +48,7 @@ export function Dashboard() {
         <div className="lg:col-span-1">
           <FinanceChart 
             title="Revenue Growth" 
-            subtitle="Monthly revenue growth" 
+            subtitle={`Monthly revenue growth (${filters.dateRange})`} 
           />
         </div>
       </div>

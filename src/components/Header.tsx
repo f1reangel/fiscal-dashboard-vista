@@ -1,13 +1,15 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Filter } from "lucide-react";
+import { Search } from "lucide-react";
+import FilterPopover, { FilterOptions } from "./FilterPopover";
 
 interface HeaderProps {
   title?: string;
+  onFilterChange?: (filters: FilterOptions) => void;
 }
 
-export function Header({ title = "Dashboard" }: HeaderProps) {
+export function Header({ title = "Dashboard", onFilterChange = () => {} }: HeaderProps) {
   return (
     <div className="flex items-center justify-between mb-6">
       <h1 className="text-2xl font-bold">{title}</h1>
@@ -20,10 +22,7 @@ export function Header({ title = "Dashboard" }: HeaderProps) {
             className="pl-10 w-64"
           />
         </div>
-        <Button variant="outline" className="flex items-center gap-2">
-          <Filter className="h-4 w-4" />
-          <span>Filter</span>
-        </Button>
+        <FilterPopover onFilterChange={onFilterChange} />
       </div>
     </div>
   );
