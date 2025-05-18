@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                finance: {
+                    blue: '#4A6FFF',
+                    green: '#3DD598',
+                    orange: '#FF974A',
+                    red: '#FF4A55',
+                    purple: '#9B51E0',
+                    darkBg: '#1A1F2C',
+                    darkSidebar: '#252A37',
+                    darkCard: '#2E3446',
+                    lightText: '#F7F9FC',
+                    grayText: '#A0A4B8',
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -94,3 +107,4 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
