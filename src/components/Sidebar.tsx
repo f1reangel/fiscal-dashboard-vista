@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   BarChart2,
   FileText,
+  FileExcel,
   Users,
   Settings
 } from "lucide-react";
@@ -28,6 +29,11 @@ const menuItems = [
     title: "Transactions",
     icon: <FileText className="h-5 w-5" />,
     path: "/transactions",
+  },
+  {
+    title: "Excel Analysis",
+    icon: <FileExcel className="h-5 w-5" />,
+    path: "/excel-analysis",
   },
   {
     title: "Users",
